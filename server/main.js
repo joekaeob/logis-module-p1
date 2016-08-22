@@ -1,0 +1,10 @@
+import '../imports/api/demoModel/tasks.js';
+import '../imports/api/componentModel/items.js';
+import '../imports/api/componentModel/devices.js';
+import '../imports/api/componentModel/places.js';
+import '../imports/api/componentModel/warehouses.js';
+import '../imports/api/componentModel/employees.js';
+import '../imports/api/componentModel/documents-adapter.js';
+import '../imports/api/runtimeModel/rfids.js';
+import '../imports/api/runtimeModel/rfids_tmp.js';
+import '../imports/api/runtimeModel/rfids_dup.js';

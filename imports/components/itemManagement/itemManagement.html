@@ -1,0 +1,18 @@
+<header>
+  <h1>Item Management</h1>
+</header>
+
+<form ng-submit="$ctrl.addItem($ctrl.newItem, $ctrl.rfids_tmp.rfid)">
+  <input ng-model="$ctrl.newItem.type" type="text" name="type" placeholder="Type to add item"/>
+  <input ng-model="$ctrl.newItem.info.expire" type="text" name="info_expire" placeholder="Type to add expire date"/>
+  <input ng-model="$ctrl.rfids_tmp.rfid" ng-disabled="true" placeholder="Waiting for RFID...">
+  <input type="submit" ng-disabled="$ctrl.rfids_tmp.rfid == undefined" value="Save">
+</form>
+
+<br/>
+
+<ul>
+  <li ng-repeat="item in $ctrl.items">
+    {{item.id}} - {{item.type}} - {{item.info[0]}} - {{item.docs}}
+  </li>
+</ul>
