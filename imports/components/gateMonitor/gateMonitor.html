@@ -1,9 +1,49 @@
-<header>
-  <h1>Gate Monitor</h1>
+<header class="page-header">
+  {{$ctrl.sys_time()}}
 </header>
 
-<ul>
-  <li ng-repeat="rfid in $ctrl.rfids">
-    {{rfid.rfid}}
-  </li>
-</ul>
+<div class="row">
+
+    <div class="col-md-6">
+
+      <div class="jumbotron custom">
+
+        <center><h4 class="text-center"><span class="label label-danger label-as-badge">RFID NUMBER : {{$ctrl.rfids_dup_count}}</span></h4></center>
+        <div ng-repeat="rfid_dup in $ctrl.rfids_dup">
+          
+          <div ng-if="$ctrl.rfids_dup_display(rfid_dup.timestamp, rfid_dup.rfid)">
+
+            <div class="input-group col-space">
+              <span class="input-group-addon addon-error"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+              <span class="input-group-addon addon-normal">{{rfid_dup.rfid}}</span>
+              <span class="input-group-addon addon-error">TIME:</span>
+              <span class="input-group-addon addon-normal">{{rfid_dup.timestamp | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+            </div>
+
+          </div>
+    
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-md-6">
+
+      <div class="jumbotron custom">
+
+        <center><h4 class="text-center"><span class="label label-success label-as-badge">RFID NUMBER : {{$ctrl.rfids_count}}</span></h4></center>
+        <div ng-repeat="rfid in $ctrl.rfids">
+            
+          <div class="input-group col-space">
+            <span class="input-group-addon addon-pass"><i class="fa fa-check-circle" aria-hidden="true"></i></span>
+            <span class="input-group-addon addon-normal">{{rfid.rfid}}</span>
+            <span class="input-group-addon addon-pass">TIME:</span>
+            <span class="input-group-addon addon-normal">{{rfid.timestamp | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+</div>

@@ -6,5 +6,5 @@ import itemManagement from '../imports/components/itemManagement/itemManagement'
 angular.module('main-module', [
   angularMeteor,
   //gateMonitor.name
-  itemManagement.name
+  gateMonitor.name
 ]);

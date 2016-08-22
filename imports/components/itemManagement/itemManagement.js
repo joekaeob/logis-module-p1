@@ -1,5 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+
 import { Items } from '../../api/componentModel/items.js';
 import { Documents } from '../../api/componentModel/documents-adapter.js';
 import { RfidsTmp } from '../../api/runtimeModel/rfids_tmp.js';
@@ -50,8 +51,14 @@ class ItemManagementCrtl {
        */
       Meteor.call('items.insert', item);   
 
+      /*
+       * Execute remove rfids_tmp to reset rfids_tmp document
+       */
       Meteor.call('rfids_tmp.remove');   
 
+      /*
+       * Execute getMaxId method to get current document ID
+       */
       Meteor.call('documents.getMaxId', function(error, result){
 
         var docId = (parseInt(result) + 1);

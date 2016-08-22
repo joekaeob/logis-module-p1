@@ -19,3 +19,4 @@ ecmascript@0.5.7              # Enable ECMAScript2015+ syntax in app code
 autopublish@1.0.7             # Publish all data to the clients (for prototyping)
 angular-templates
 session
+fortawesome:fontawesome
