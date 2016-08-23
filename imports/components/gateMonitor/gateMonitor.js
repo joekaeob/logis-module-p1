@@ -43,14 +43,40 @@ class GateMonitorCtrl {
     var diff = (ref.getTime() - Rfids.findOne({rfid:rfid}).timestamp.getTime())/1000;
     console.log(diff);
     if(diff < 8){
-      var dup = RfidsDup.findOne({rfid:rfid})._id;
+      var dup = RfidsDup.findOne({rfid:rfid});
       if(dup != undefined){
-        RfidsDup.remove(dup);
+        Meteor.call('rfids_dup.remove', dup._id);
       }
       return false;
     }else{
       return true;
     }
+  }
+
+  set_color (rfid) {
+    if(Rfids.find({rfid:rfid, status:false}).count() > 0){
+      Session.setDefault('_color_'+rfid, 'addon-pass');
+    }else{
+      Session.setDefault('_color_'+rfid, 'addon-wait');
+    }  
+	  return Session.get('_color_'+rfid);
+  }
+
+  diff_time (ref, rfid) {
+	  if(Rfids.find({rfid:rfid, status:true}).count() > 0){
+		  setTimeout(function(){ 
+				Session.set('_color_'+rfid, 'addon-pass');
+				setTimeout(function(){
+          delete Session.keys['_color_'+rfid];
+          Meteor.call('rfids.updateStatus', rfid);
+        }, 1000);
+			}, 8000);	
+	  }
+  }
+
+  reset(){
+    Meteor.call('rfids.reset');
+    Meteor.call('rfids_dup.reset');
   }
 }
  

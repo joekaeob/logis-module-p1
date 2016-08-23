@@ -7,4 +7,14 @@ import { check } from 'meteor/check';
  */ 
 export const Rfids = new Mongo.Collection('rfids');
 
+Meteor.methods({
 
+  'rfids.reset' () {
+    Rfids.remove({});
+  },
+
+  'rfids.updateStatus' (rfid) {
+    Rfids.update({rfid : rfid},{$set:{status:false}});
+  }
+
+});

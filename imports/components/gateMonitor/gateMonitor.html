@@ -1,14 +1,20 @@
-<header class="page-header">
-  {{$ctrl.sys_time()}}
+<header>
+  <div class="jumbotron custom-head">
+    {{$ctrl.sys_time()}}
+    <button type="button" class="btn btn-primary" ng-click="$ctrl.reset()">Reset</button>
+  </div>
 </header>
 
 <div class="row">
 
     <div class="col-md-6">
 
+      <div class="jumbotron custom-head">
+        <center><h4 class="text-center"><span class="label label-danger label-as-badge">RFID NUMBER : {{$ctrl.rfids_dup_count}}</span></h4></center>
+      </div>
+
       <div class="jumbotron custom">
 
-        <center><h4 class="text-center"><span class="label label-danger label-as-badge">RFID NUMBER : {{$ctrl.rfids_dup_count}}</span></h4></center>
         <div ng-repeat="rfid_dup in $ctrl.rfids_dup">
           
           <div ng-if="$ctrl.rfids_dup_display(rfid_dup.timestamp, rfid_dup.rfid)">
@@ -29,15 +35,19 @@
 
     <div class="col-md-6">
 
+      <div class="jumbotron custom-head">
+        <center><h4 class="text-center"><span class="label label-success label-as-badge">RFID NUMBER : {{$ctrl.rfids_count}}</span></h4></center>
+      </div>
+
       <div class="jumbotron custom">
 
-        <center><h4 class="text-center"><span class="label label-success label-as-badge">RFID NUMBER : {{$ctrl.rfids_count}}</span></h4></center>
-        <div ng-repeat="rfid in $ctrl.rfids">
-            
+       <div ng-repeat="rfid in $ctrl.rfids">
+          
+          {{$ctrl.diff_time(rfid.timestamp, rfid.rfid)}}
           <div class="input-group col-space">
-            <span class="input-group-addon addon-pass"><i class="fa fa-check-circle" aria-hidden="true"></i></span>
+            <span class="input-group-addon {{$ctrl.set_color(rfid.rfid)}}"><i class="fa fa-check-circle" aria-hidden="true"></i></span>
             <span class="input-group-addon addon-normal">{{rfid.rfid}}</span>
-            <span class="input-group-addon addon-pass">TIME:</span>
+            <span class="input-group-addon {{$ctrl.set_color(rfid.rfid)}}">TIME:</span>
             <span class="input-group-addon addon-normal">{{rfid.timestamp | date:'yyyy-MM-dd HH:mm:ss'}}</span>
           </div>
 
