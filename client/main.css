@@ -12,6 +12,8 @@ body {
     margin: 0;
  
     font-size: 14px;
+
+    background-color:#E6E6E6;
 }
 
 .col-space{
@@ -49,6 +51,7 @@ body {
     height: 300px;
     overflow-x: hidden;
     overflow-y: auto;
+    background-color: #666666;
 }
 
 .jumbotron.custom-head{
@@ -58,4 +61,25 @@ body {
     height: 60px;
     overflow-x: hidden;
     overflow-y: auto;
+    background-color: #666666;
+}
+
+.jumbotron.custom-head.pass{
+    padding:12px;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;    
+    color: #fff;
+    background-color: #A5DF00;
+    border-style:solid;
+}
+
+.jumbotron.custom-head.fail{
+    padding:12px;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    background-color: #DF0101;
+    border-style:solid;
 }
