@@ -1,16 +1,17 @@
 <header>
+  <h1><b><i class="fa fa-truck" aria-hidden="true"></i> Monitoring System</b></h1><br/>
   <div class="jumbotron custom-head">
     {{$ctrl.sys_time()}}
-    <button type="button" class="btn btn-primary" ng-click="$ctrl.reset()">Reset</button>
+    <button type="button" class="btn btn-primary" ng-click="$ctrl.reset()"><i class="fa fa-trash" aria-hidden="true"></i> RESET</button>
   </div>
 </header>
 
 <div class="row">
 
-    <div class="col-md-6">
+    <div class="col-lg-6 col-md-6 col-xs-6">
 
       <div class="jumbotron custom-head fail">
-        RFID NUMBER : {{$ctrl.rfids_dup_count}}
+        <i class="fa fa-close" aria-hidden="true"></i> RFID NUMBER : {{$ctrl.rfids_dup_count}}
       </div>
 
       <div class="jumbotron custom">
@@ -33,10 +34,10 @@
       </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-lg-6 col-md-6 col-xs-6">
 
       <div class="jumbotron custom-head pass">
-        RFID NUMBER : {{$ctrl.rfids_count}}
+        <i class="fa fa-check" aria-hidden="true"></i> RFID NUMBER : {{$ctrl.rfids_count}}
       </div>
 
       <div class="jumbotron custom">

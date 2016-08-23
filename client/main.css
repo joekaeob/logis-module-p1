@@ -2,18 +2,10 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
  
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
- 
-    padding: 0;
-    margin: 0;
- 
     font-size: 14px;
 
     background-color:#E6E6E6;
+    padding-top: 100px;
 }
 
 .col-space{
@@ -40,15 +32,11 @@ body {
     background-color:#424242;
 }
 
-.container.custom{
-    margin-top: 70px;
-}
-
 .jumbotron.custom{
     padding:10px;
     margin-left:5px;
     margin-right:5px;
-    height: 300px;
+    height: 550px;
     overflow-x: hidden;
     overflow-y: auto;
     background-color: #666666;
@@ -70,7 +58,7 @@ body {
     font-size: 20px;
     text-align: center;    
     color: #fff;
-    background-color: #A5DF00;
+    background-color: #74DF00;
     border-style:solid;
 }
 
@@ -83,3 +71,6 @@ body {
     background-color: #DF0101;
     border-style:solid;
 }
+
+.navbar {min-height: 80px;}
+.navbar-brand {padding: 0 15px; height: 80px; line-height: 80px;}
